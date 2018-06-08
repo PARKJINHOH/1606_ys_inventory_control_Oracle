@@ -6,9 +6,13 @@
 
 개발 환경(하드웨어 및 소프트웨어)
 시스템 동작 환경 
+
 ● Back-End : Oracle 11g, JAVA JDK 1.8
+
 ● IDE : Eclipse JAVA EE(neon.3) 
+
 ● OS : Window 10
+
 설명 : 오라클DB를 이용한 재고 관리 프로그램
 
 사용 동영상(YouTube)
