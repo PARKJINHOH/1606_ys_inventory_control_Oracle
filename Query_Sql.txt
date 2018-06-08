@@ -1,0 +1,81 @@
+CREATE TABLE MEMBER(
+
+    id varchar2(15) NOT NULL, --아이디
+    Pwd varchar2(15) NOT NULL, --비밀번호
+    Name varchar2(10) NOT NULL, -- 이름
+    tel varchar2(20) NOT NULL, -- 전화번호
+    gender varchar2(10) NOT NULL, -- 성별
+    email varchar2(50), -- 이메일
+    CONSTRAINT pk_member PRIMARY KEY(id)  -- 기본키 지정
+)
+
+
+CREATE TABLE GOODS 
+(
+  NAME VARCHAR2(20 BYTE) NOT NULL 
+, REMAIN NUMBER NOT NULL 
+, SALES VARCHAR2(20 BYTE) NOT NULL 
+, ETC VARCHAR2(20 BYTE) NOT NULL 
+, CONSTRAINT GOODS_PK PRIMARY KEY 
+  (
+    NAME 
+  )
+  USING INDEX 
+  (
+      CREATE UNIQUE INDEX GOODS_PK ON GOODS (NAME ASC) 
+      LOGGING 
+      TABLESPACE MYMY 
+      PCTFREE 10 
+      INITRANS 2 
+      STORAGE 
+      ( 
+        INITIAL 65536 
+        NEXT 1048576 
+        MINEXTENTS 1 
+        MAXEXTENTS UNLIMITED 
+        BUFFER_POOL DEFAULT 
+      ) 
+      NOPARALLEL 
+  )
+  ENABLE 
+) 
+LOGGING 
+TABLESPACE MYMY 
+PCTFREE 10 
+INITRANS 1 
+STORAGE 
+( 
+  INITIAL 65536 
+  NEXT 1048576 
+  MINEXTENTS 1 
+  MAXEXTENTS UNLIMITED 
+  BUFFER_POOL DEFAULT 
+) 
+NOPARALLEL;
+
+COMMENT ON COLUMN GOODS.NAME IS '상품명';
+
+COMMENT ON COLUMN GOODS.REMAIN IS '재고량';
+
+COMMENT ON COLUMN GOODS.SALES IS '가격';
+
+COMMENT ON COLUMN GOODS.ETC IS '비고';
+
+
+
+insert into goods (name, remain, sales, etc)
+values('비아그라', 364, '831000원', '고산병');
+
+insert into goods (name, remain, sales, etc)
+values('치트옥산', 7, '30000원', '신데렐라주사');
+
+insert into goods (name, remain, sales, etc)
+values('글루타치온', 77, '30000원', '백옥주사');
+
+insert into goods (name, remain, sales, etc)
+values('라이넥', 4, '50000원', '태반주사');
+
+insert into goods (name, remain, sales, etc)
+values('길라임', 1, '10원', '박근혜');
+
+select * from goods;
